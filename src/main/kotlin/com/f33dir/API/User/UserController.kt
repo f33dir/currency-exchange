@@ -33,13 +33,13 @@ fun Application.UserController() {
             post("/API/login"){
                 val credentials = call.receive<User>()
                 val user = userRepo.getUserByLogin(credentials)
-                if(BCrypt.checkpw(credentials.password, user.password)){
+                if(user.id != null && BCrypt.checkpw(credentials.password, user.password)){
                     call.response.status(HttpStatusCode.OK)
                     call.sessions.set(MySession(username = user.login, isAdmin = user.isAdmin))
                     call.respond("")
                 } else{
                     call.response.status(HttpStatusCode.Unauthorized)
-                    call.respond("Неправильные реквизиты")
+                    call.respond("Неправильный логин или пароль")
                 }
             }
         authenticate("auth-session") {

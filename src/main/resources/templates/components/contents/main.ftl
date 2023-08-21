@@ -8,11 +8,14 @@
                 <h2>
                     Перевести из
                 </h2>
-                <label for="valute_from_input">Номинал</label>
-                <input type="number" value="0" id="valute_from_input" oninput="valuteFromChange()" class="form-control m-1 shadow border-dark" style="display: none">
+
                 <select id="valute_from" onchange="valuteFromChange(this.value)" class="form-select form-select-lg col-md-3 m-1 mb-3 col-xs-12 col-sm-6 align-self-bottom shadow border-dark" aria-label="Выберите валюту">
                     <option value="-1" disabled selected hidden>Выбрать валюту</option>
                 </select>
+                <div style="display: none">
+                    <label for="valute_from_input">Номинал</label>
+                    <input type="number" value="0" id="valute_from_input" oninput="valuteFromChange()" class="form-control m-1 shadow border-dark" >
+                </div>
             </div>
         </div>
         <div class="card col-sm-12 col-md-6 ">
@@ -20,11 +23,15 @@
                 <h2>
                     Перевести в
                 </h2>
-                <label for="valute_to_input">Номинал</label>
-                <input type="number" value="0" id="valute_to_input" oninput="valuteToChange()" class="form-control m-1 shadow border-dark" style="display: none">
+
                 <select id="valute_to" onchange="valuteToChange(this.value)" class="form-select form-select-lg col-md-3 col-xs-12 col-sm-6 m-1 mb-3 align-self-b ottom shadow border-dark" aria-label="Выберите валюту">
                     <option value="-1" disabled selected hidden>Выбрать валюту</option>
                 </select>
+                <div style="display: none">
+
+                    <label for="valute_to_input">Номинал</label>
+                    <input type="number" value="0" id="valute_to_input" oninput="valuteToChange()" class="form-control m-1 shadow border-dark" >
+                </div>
             </div>
         </div>
         </div>
@@ -34,6 +41,7 @@
     let quotations;
     let fromValute;
     let toValute;
+
     function valuteFromChange(item){
         let valute_from = document.getElementById("valute_from")
         let valute_to = document.getElementById("valute_to")
@@ -44,8 +52,8 @@
             fromValute = quotations.find(comp)
         }
         if(valute_from.value!=="-1" && valute_to.value!=="-1"){
-            $('#valute_from_input').show()
-            $('#valute_to_input').show()
+            $('#valute_from_input').parent().show()
+            $('#valute_to_input').parent().show()
             valute_to_input.value = ((valute_from_input.value*fromValute.Value)/toValute.Value).toFixed(2)
         }
 
@@ -60,9 +68,9 @@
             toValute = quotations[quotations.findIndex(comp)]
         }
         if(valute_from.value!=="-1" && valute_to.value!=="-1"){
-            $('#valute_from_input').show()
-            $('#valute_to_input').show()
-            valute_from_input.value = ((valute_to_input.value*toValute.Value)/fromValute.Value).toFixed(2)
+            $('#valute_from_input').parent().show()
+            $('#valute_to_input').parent().show()
+            valute_to_input.value = ((valute_from_input.value*fromValute.Value)/toValute.Value).toFixed(2)
         }
     }
     const update = function (){

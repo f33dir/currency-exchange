@@ -4,9 +4,11 @@
             <span class="fs-4 mx-3">Конвертер валют</span>
         </a>
         <#if logged>
-                <button class="btn btn-outline-light  pr-2" onclick="logoutOnClick()" type="button" id="logoutBtn" aria-expanded="false">
-                    Выход
-                </button>
+            <div class="col-sm-4 text-end mx-3">
+                    <button class="btn btn-outline-light  pr-2" onclick="logoutOnClick()" type="button" id="logoutBtn" aria-expanded="false">
+                        Выход
+                    </button>
+            </div>
         <#else>
             <div class="col-sm-4 text-end mx-3">
                 <button type="button" onclick="loginOnClick()" class="btn btn-outline-light me-2">Вход</button>
