@@ -1,5 +1,6 @@
 package com.f33dir.plugins
 
+import com.f33dir.API.User.User
 import freemarker.cache.*
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -52,7 +53,7 @@ fun Application.configureTemplating() {
             }
         }
         get("/html-freemarker") {
-            call.respond(FreeMarkerContent("index.ftl", mapOf("data" to IndexData(listOf(1, 2, 3))), ""))
+//            call.respond(FreeMarkerContent("index.ftl", mapOf("user" to User(null,"sdf",""),"logged" to true), ""))
         }
     }
 }

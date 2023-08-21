@@ -6,18 +6,38 @@ info:
 servers:
   - url: "http://0.0.0.0:8080"
 paths:
-  /:
-    get:
-      description: "Hello World!"
+  /API/login:
+    post:
       responses:
         "200":
-          description: "OK"
+          description: "Успешный вход"
           content:
             text/plain:
               schema:
                 type: "string"
               examples:
                 Example#1:
-                  value: "Hello World!"
+                  value: "done"
+        "401":
+          description: "Несуществующие реквизиты"
+  /API/register:
+    post:
+      responses:
+        "201":
+          description: "Успешная регистрация"
+        "409":
+          description: "Пользователь с таким именем уже существует"
+  /API/logout:
+    post:
+      responses:
+        "302":
+          description: "Успешный выход"
+  /API/quotation:
+    get:
+      responses:
+        "200":
+          description: "Возвращает JSON c котировками"
+        "403":
+          description: "Ошибка возвращается при не авторизованном запросе"
 components:
   schemas:

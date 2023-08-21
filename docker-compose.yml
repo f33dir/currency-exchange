@@ -1,0 +1,24 @@
+version: "3.6"
+
+services:
+  app:
+    build: ./
+    container_name: gradle-app
+    volumes:
+      - ./:/currency-exchange
+    ports:
+      - "8080:8080"
+    expose:
+      - 8080
+  database:
+    image: postgres
+    ports:
+      - "4321:5432"
+    expose:
+      - "4321"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - vars.env
+volumes:
+  pgdata:
