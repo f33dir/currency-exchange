@@ -13,9 +13,6 @@ fun Application.staticPages(){
             get("/") {
                 call.respond(FreeMarkerContent("index.ftl", mapOf("content" to "main","logged" to true ), ""))
             }
-            get("/profile") {
-                call.respond(FreeMarkerContent("index.ftl", mapOf("content" to "profile","logged" to true),""))
-            }
         }
         get("/login") {
             call.respond(FreeMarkerContent("index.ftl", mapOf("content" to "login","logged" to false),""))

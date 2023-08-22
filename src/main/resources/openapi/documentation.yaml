@@ -6,7 +6,7 @@ info:
 servers:
   - url: "http://0.0.0.0:8080"
 paths:
-  /API/login:
+  /api/login:
     post:
       responses:
         "200":
@@ -20,19 +20,19 @@ paths:
                   value: "done"
         "401":
           description: "Несуществующие реквизиты"
-  /API/register:
+  /api/register:
     post:
       responses:
         "201":
           description: "Успешная регистрация"
         "409":
           description: "Пользователь с таким именем уже существует"
-  /API/logout:
+  /api/logout:
     post:
       responses:
         "302":
           description: "Успешный выход"
-  /API/quotation:
+  /api/quotation:
     get:
       responses:
         "200":

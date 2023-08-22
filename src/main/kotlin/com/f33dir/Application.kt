@@ -29,7 +29,6 @@ fun Application.module() {
     staticPages()
     configureHTTP()
     configureTemplating()
-    configureSerialization()
     configureAssets()
     UserController()
     QuotationController()

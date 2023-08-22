@@ -28,7 +28,7 @@
                 dataType:'text',
                 contentType : "application/json; charset=utf-8",
                 method : "post",
-                url: "/API/register",
+                url: "/api/register",
                 data: JSON.stringify({
                     "login": document.getElementById("input_login").value,
                     "password": document.getElementById("input_password").value,

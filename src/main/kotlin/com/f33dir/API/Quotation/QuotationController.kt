@@ -11,7 +11,7 @@ fun Application.QuotationController(){
     val quotationService = QuotationService(quotationRepo = quotationRepo)
     routing {
         authenticate("auth-session-api") {
-            get("/API/quotation"){
+            get("/api/quotation"){
                 quotationService.fetchQuotations()
                 var quotations = quotationRepo.getQuotations()
                 call.respond(quotations);

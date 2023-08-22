@@ -76,7 +76,7 @@
     const update = function (){
         $.ajax({
             type: "GET",
-            url: "/API/quotation",
+            url: "/api/quotation",
             complete : function (jqXHR, textStatus){
                 console.log(jqXHR)
                 quotations = JSON.parse(jqXHR.responseText)

@@ -18,7 +18,7 @@ fun Application.UserController() {
     val userRepo : UserRepo by inject()
     routing {
 
-            post("/API/register"){
+            post("/api/register"){
                 val credentials = call.receive<User>()
                 val test = userRepo.getUserByLogin(credentials)
                 if(test.id==null){
@@ -30,7 +30,7 @@ fun Application.UserController() {
                     call.respond("Пользователь с таким именем уже существует")
                 }
             }
-            post("/API/login"){
+            post("/api/login"){
                 val credentials = call.receive<User>()
                 val user = userRepo.getUserByLogin(credentials)
                 if(user.id != null && BCrypt.checkpw(credentials.password, user.password)){
@@ -43,7 +43,7 @@ fun Application.UserController() {
                 }
             }
         authenticate("auth-session") {
-            post("API/logout"){
+            post("/api/logout"){
                 call.sessions.clear<MySession>()
                 call.respondRedirect("/login")
             }

@@ -25,7 +25,7 @@
         window.location.replace("/login")
     }
     function logoutOnClick(){
-        $.post("/API/logout",(data)=>{
+        $.post("/api/logout",(data)=>{
             console.log(data);
             window.location.replace("/")
         })
